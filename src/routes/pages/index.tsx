@@ -22,6 +22,12 @@ function RouteComponent() {
     <div className="flex flex-col w-full">
       <TableFilters dataset="pages" />
       <Table<Page>
+        columns={[
+          { key: 'title', header: 'Title' },
+          { key: 'active', header: 'Active' },
+          { key: 'updatedAt', header: 'Last Updated' },
+          { key: 'publishedAt', header: 'Published At' },
+        ]}
         data={pages as Page[]}
         renderActions={(row: Page) => (
           <TableActions

@@ -17,12 +17,19 @@ function RouteComponent() {
     (filters.status && filters.status !== 'all');
 
   const pricePlans = isFiltering ? filteredData : data.pricePlans;
+  console.log(pricePlans);
 
   return (
     <div className="flex flex-col w-full">
       <TableFilters dataset="pricePlans" />
       <Table<PricePlan>
         data={pricePlans as PricePlan[]}
+        columns={[
+          { key: 'description', header: 'Description' },
+          { key: 'active', header: 'Active' },
+          { key: 'createdAt', header: 'Created At' },
+          { key: 'removedAt', header: 'Removed At' },
+        ]}
         renderActions={(row: PricePlan) => (
           <TableActions
             rowData={row}
